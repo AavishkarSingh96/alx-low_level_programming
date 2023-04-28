@@ -10,7 +10,7 @@
 size_t print_list(const list_t *h)
 {
 	size_t donkey = 0;
-
+/*C language is used here*/
 	while (h)
 	{
 		if (!h->str)
