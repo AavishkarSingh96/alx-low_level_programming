@@ -12,35 +12,35 @@
 listint_t *insert_nodeint_at_index(listint_t **hint, unsigned int sat, int n)
 {
 	unsigned int i;
-	listint_t *new;
+	listint_t *old;
 	listint_t *temp = *hint;
-
-	new = malloc(sizeof(listint_t));
-	if (!new || !hint)
+/* this remains same*/
+	old = malloc(sizeof(listint_t));
+	if (!old || !hint)
 		return (NULL);
-
-	new->n = n;
-	new->next = NULL;
-
+/*are we losing it*/
+	old->n = n;
+	old->next = NULL;
+/*no need to revert*/
 	if (sat == 0)
 	{
-		new->next = *hint;
-		*hint = new;
-		return (new);
+		old->next = *hint;
+		*hint = old;
+		return (old);
 	}
-
+/*can we die please*/
 	for (i = 0; temp && i < sat; i++)
 	{
 		if (i == sat - 1)
 		{
-			new->next = temp->next;
-			temp->next = new;
-			return (new);
+			old->next = temp->next;
+			temp->next = old;
+			return (old);
 		}
 		else
 			temp = temp->next;
 	}
-
+/*this is too hard*/
 	return (NULL);
 }
 /*screw this shit*/
