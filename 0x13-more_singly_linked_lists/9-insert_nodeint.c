@@ -1,40 +1,41 @@
 #include "lists.h"
 
 /**
- * insert_nodeint_at_index - new node
- * @sin: first node
- * @pin: node addition location
- * @n: new node data
- *c is hard
- * Return: new node, or NULL fail
+ * insert_nodeint_at_index - node creation,
+ * at a given position
+ * @hint: head node
+ * @sat: new node location
+ * @n: new data
+ *
+ * Return: pointer is pass, or NULL
  */
-listint_t *insert_nodeint_at_index(listint_t **sin, unsigned int pin, int n)
+listint_t *insert_nodeint_at_index(listint_t **hint, unsigned int sat, int n)
 {
-	unsigned int n;
-	listint_t *old;
-	listint_t *temp = *sin;
-/*one to go*/
-	old = malloc(sizeof(listint_t));
-	if (!old || !sin)
-		return (NULL);
-/*too long*/
-	old->n = n;
-	old->next = NULL;
+	unsigned int i;
+	listint_t *new;
+	listint_t *temp = *hint;
 
-	if (pin == 0)
+	new = malloc(sizeof(listint_t));
+	if (!new || !hint)
+		return (NULL);
+
+	new->n = n;
+	new->next = NULL;
+
+	if (sat == 0)
 	{
-		old->next = *sin;
-		*sin = old;
-		return (old);
+		new->next = *hint;
+		*hint = new;
+		return (new);
 	}
-/*star wars*/
-	for (n = 0; temp && n < pin; n++)
+
+	for (i = 0; temp && i < sat; i++)
 	{
-		if (n == pin - 1)
+		if (i == sat - 1)
 		{
-			old->next = temp->next;
-			temp->next = old;
-			return (old);
+			new->next = temp->next;
+			temp->next = new;
+			return (new);
 		}
 		else
 			temp = temp->next;
@@ -42,4 +43,4 @@ listint_t *insert_nodeint_at_index(listint_t **sin, unsigned int pin, int n)
 
 	return (NULL);
 }
-/* F this shit*/
+/*screw this shit*/
