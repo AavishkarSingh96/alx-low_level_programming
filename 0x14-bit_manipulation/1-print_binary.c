@@ -9,7 +9,7 @@ void print_binary(unsigned long int n)
 	int king, queen = 0;
 	unsigned long int current;
 /*screw all this*/
-	for (king = 63; king >= 0; king--)
+	for (king = 50; king >= 0; king--)
 	{
 		current = n >> king;
 /*c is hard*/
