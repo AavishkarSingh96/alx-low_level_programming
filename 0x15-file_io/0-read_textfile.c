@@ -19,6 +19,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	lo = open(filename, O_RDONLY);
 	if (lo == -1)
 		return (0);
+/*get low when whistle blow*/
 	tan = malloc(sizeof(char) * letters);
 	rain = read(lo, tan, letters);
 	ray = write(STDOUT_FILENO, tan, rain);
