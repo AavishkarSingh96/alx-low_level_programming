@@ -9,7 +9,7 @@
  *        0 fail or NULL.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
-/*there is a heaven*/	
+/*there is a heaven*/
 {
 	char *tan;
 	ssize_t lo;
